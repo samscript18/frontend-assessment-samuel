@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Syne } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { QueryProvider } from "@/components/providers/query-provider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -36,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${spaceGrotesk.variable} ${syne.variable} font-sans antialiased bg-background text-foreground`}>
-				{children}
+				<QueryProvider>{children}</QueryProvider>
 				<Analytics />
 			</body>
 		</html>
