@@ -25,7 +25,7 @@ async function fetchTMDB<T>(endpoint: string, params: Record<string, string | nu
 	const response = await fetch(url.toString(), {
 		...options,
 		next: {
-			revalidate: 3600, // 1 hour default
+			revalidate: 3600, 
 			...options.next,
 		},
 	});

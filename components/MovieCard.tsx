@@ -24,13 +24,12 @@ export function MovieCard({ content, type, index = 0 }: MovieCardProps) {
 	const posterUrl = getPosterPath(content.poster_path, "w342");
 	const language = (content.original_language || "n/a").toUpperCase();
 
-	// Load first 8 items eagerly (covers above-fold content on most viewports)
 	const shouldEagerLoad = index < 8;
 
 	return (
 		<Link href={`/${routeType}/${content.id}`}>
 			<article className="group cursor-pointer h-full flex flex-col rounded-2xl overflow-hidden glass-panel hover:bg-white/12 transition duration-300 hover:-translate-y-1">
-				{/* Poster Image */}
+				
 				<div className="relative w-full aspect-2/3 overflow-hidden bg-slate-800/60">
 					<Image
 						src={posterUrl}
@@ -41,13 +40,13 @@ export function MovieCard({ content, type, index = 0 }: MovieCardProps) {
 						loading={shouldEagerLoad ? "eager" : "lazy"}
 						priority={shouldEagerLoad}
 					/>
-					{/* Rating Badge */}
+					
 					<div className="absolute top-3 right-3 bg-cyan-200/90 text-slate-900 rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm shadow-lg shadow-cyan-300/20">
 						{content.vote_average.toFixed(1)}
 					</div>
 				</div>
 
-				{/* Content Info */}
+				
 				<div className="flex-1 p-4 flex flex-col justify-between">
 					<div>
 						<h3 className="font-semibold text-white line-clamp-2 text-sm md:text-base mb-2">{title}</h3>
@@ -60,11 +59,11 @@ export function MovieCard({ content, type, index = 0 }: MovieCardProps) {
 						</div>
 					</div>
 
-					{/* Overview Preview */}
+					
 					<p className="text-xs text-slate-100/85 line-clamp-3">{content.overview || "No description available"}</p>
 				</div>
 
-				{/* Hover Overlay */}
+				
 				<div className="absolute inset-0 bg-linear-to-t from-black/45 via-transparent to-white/5 group-hover:from-black/25 transition-colors duration-300 pointer-events-none" />
 			</article>
 		</Link>

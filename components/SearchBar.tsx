@@ -11,15 +11,15 @@ export function SearchBar() {
 		<div className="w-full sticky top-0 z-40 backdrop-blur-xl bg-slate-950/55 border-b border-white/15">
 			<div className="max-w-7xl mx-auto px-4 py-6">
 				<div className="space-y-4 glass-panel p-4 md:p-5">
-					{/* Search Input */}
+					
 					<div className="relative">
 						<div className={`flex items-center rounded-xl border transition-all duration-200 bg-white/10 ${isFocused ? "border-cyan-200 ring-2 ring-cyan-300/35" : "border-white/20"}`}>
-							{/* Search Icon */}
+							
 							<svg className="w-5 h-5 text-cyan-100/70 ml-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 							</svg>
 
-							{/* Input Field */}
+							
 							<input
 								type="text"
 								value={query}
@@ -30,7 +30,7 @@ export function SearchBar() {
 								className="flex-1 bg-transparent px-4 py-3 text-white placeholder-cyan-100/45 focus:outline-none"
 							/>
 
-							{/* Clear Button */}
+							
 							{query && (
 								<button onClick={() => updateQuery("")} className="px-4 py-3 text-cyan-100/70 hover:text-white transition-colors" aria-label="Clear search">
 									<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -45,9 +45,9 @@ export function SearchBar() {
 						</div>
 					</div>
 
-					{/* Filter Controls */}
+					
 					<div className="flex flex-wrap gap-2 items-center">
-						{/* Type Filter */}
+						
 						<div className="flex gap-2">
 							{(["all", "movie", "tv"] as const).map((t) => (
 								<button
@@ -75,7 +75,7 @@ export function SearchBar() {
 							/>
 						</label>
 
-						{/* Reset Button */}
+						
 						{(query || year || type !== "all") && (
 							<button onClick={reset} className="px-4 py-2 rounded-full text-sm font-semibold bg-white/5 text-slate-100 border border-white/20 hover:bg-white/10 transition-colors">
 								Reset Filters

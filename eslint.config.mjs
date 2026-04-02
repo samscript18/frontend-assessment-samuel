@@ -5,6 +5,12 @@ const config = [
 	{
 		ignores: ["components/ui/**", ".next/**"],
 	},
+	{
+		files: ["tests/**/*.{ts,tsx}"],
+		rules: {
+			"@next/next/no-img-element": "off",
+		},
+	},
 ];
 
 export default config;
