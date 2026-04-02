@@ -14,3 +14,12 @@ next.user-config.*
 node_modules
 .next/
 .DS_Store
+
+# OpenNext build output
+.open-next/
+
+# Wrangler local state
+.wrangler/
+
+# Next.js build output (just in case)
+.next/
