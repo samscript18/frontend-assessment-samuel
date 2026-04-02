@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+:root {
+  --bg-1: #07111f;
+  --bg-2: #152a48;
+  --bg-3: #2f1a47;
+  --text-main: #eef5ff;
+  --text-soft: rgba(228, 241, 255, 0.78);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.24);
+  --glass-shadow: 0 24px 60px rgba(2, 10, 24, 0.45);
+}
+
+@theme inline {
+  --color-background: #06101d;
+  --color-foreground: var(--text-main);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-syne);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 14% 22%, rgba(0, 194, 255, 0.32), transparent 36%),
+    radial-gradient(circle at 83% 18%, rgba(255, 87, 122, 0.22), transparent 35%),
+    radial-gradient(circle at 77% 80%, rgba(80, 255, 194, 0.2), transparent 33%),
+    linear-gradient(145deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+  background-attachment: fixed;
+}
+
+.page-shell {
+  position: relative;
+}
+
+.page-shell::before,
+.page-shell::after {
+  content: '';
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-shell::before {
+  width: 280px;
+  height: 280px;
+  background: rgba(58, 254, 245, 0.2);
+  top: 10%;
+  left: -80px;
+}
+
+.page-shell::after {
+  width: 320px;
+  height: 320px;
+  background: rgba(253, 109, 173, 0.18);
+  right: -90px;
+  bottom: 6%;
+}
+
+.glass-panel {
+  border-radius: 1.25rem;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: 180ms ease;
+}
+
+.pill-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.reveal-fade {
+  animation: reveal-fade 500ms ease-out;
+}
+
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
